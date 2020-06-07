@@ -1,26 +1,13 @@
 <template>
-    <div 
-        class="case-card">
-        <a :href="project.url ? project.url : ''">
-            <Card-Image-Frame 
-                class="case-card_image"
-                :image="project.cover"
-                :alt="project.caption"
-                :load-image="isVisible"/>
-        </a>
-        <span
-            class="case-card_date">
-            {{ project.created | dateFormat }}</span>
-        <h4
-            class="case-card_title heading heading__h4">
-            <a 
-                :href="project.url ? project.url : ''">
-                {{ project.caption }}</a>
-            </h4>
-        <p
-            class="case-card_description paragraph">
-            {{ project.description }}</p>
-    </div>
+    <img 
+        :src="src" 
+        :alt="alt"
+        :class="imageClass"
+        v-if="isVisible">
+    <Placeholder
+        :padding-bottom="ratioPercent"
+        :class="imageClass"
+        v-else/>
 </template>
 
 <script>
@@ -28,9 +15,15 @@ import Placeholder from '@fakit/vue-placeholder'
 export default {
     props: {
         src: String,
+        alt: String,
+        imageClass: String,
         observerMargin: {
             type: String,
             default: '100px 0px 100px 0px'
+        },
+        ratioPercent: {
+            type: String,
+            default: '60%'
         }
     },
     data(){
@@ -44,19 +37,15 @@ export default {
         }
     },
     components: {
-        CardImageFrame,
+        Placeholder,
     },
     mounted(){
-        this.observer = new IntersectionObserver(this.observeCard, this.observerOptions);
+        this.observer = new IntersectionObserver(this.observeImage, this.observerOptions);
         this.observer.observe(this.$el);
     },
     computed: {},
     methods: {
-        loadImage(){
-            tis.status = true;
-            console.log('1');
-        },
-        observeCard(entries, observer){
+        observeImage(entries, observer){
             if(entries[0].isIntersecting){
                 this.isVisible = true;
                 this.observer.disconnect();
