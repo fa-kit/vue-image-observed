@@ -1,6 +1,6 @@
 {
   "name": "@fakit/vue-image-observed",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "keywords": [
     "iamstudio",
     "image",
@@ -23,6 +23,9 @@
   },
   "homepage": "https://github.com/fa-kit/vue-image-observed#readme",
   "license": "ISC",
+  "dependencies": {
+    "@fakit/vue-placeholder": "^0.1.0"
+  },
   "devDependencies": {
     "@fakit/vue-placeholder": "^0.1.0"
   }
