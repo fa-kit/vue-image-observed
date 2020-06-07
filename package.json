@@ -1,0 +1,29 @@
+{
+  "name": "@fakit/vue-image-observed",
+  "version": "0.1.0",
+  "keywords": [
+    "iamstudio",
+    "image",
+    "intersection observer",
+    "lazy loading"
+  ],
+  "description": "Vue placeholder for FA-Kit lob",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fa-kit/vue-image-observed.git"
+  },
+  "main": "./src/ImageObserved.vue",
+  "scripts": {
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development --watch"
+  },
+  "author": "iAmStudio <info@i-am.studio>",
+  "bugs": {
+    "url": "https://github.com/fa-kit/vue-image-observed/issues"
+  },
+  "homepage": "https://github.com/fa-kit/vue-image-observed#readme",
+  "license": "ISC",
+  "devDependencies": {
+    "@fakit/vue-placeholder": "^0.1.0"
+  }
+}
